@@ -1,0 +1,99 @@
+@import "tailwindcss";
+@plugin "daisyui";
+
+
+
+
+/* Custom scrollbar styles using secondary color */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f3f4f6;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-secondary);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-secondary);
+}
+
+*{
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-secondary) #f3f4f6;
+  scroll-behavior: smooth;
+}
+
+
+*{
+  font-family: "Cairo", sans-serif;
+  font-optical-sizing: auto;
+  font-weight:  (200,300,400,500,600,700,800,900,1000) ;
+  font-style: normal;
+  font-variation-settings:"slnt" 0;
+  @apply selection:bg-secondary selection:text-white 
+}
+
+
+@theme {
+  --breakpoint-xs: 380px;
+}
+
+@keyframes sideLeft {
+  0%,100% { transform: translateX(-500px); opacity: 0; }
+  100% { transform: translateX(0px); opacity: 1;}
+}
+@keyframes sideRight {
+  0%,100% { transform: translateX(500px); opacity: 0; }
+  100% { transform: translateX(0px); opacity: 1;}
+}
+
+@keyframes down {
+  0%,100% { transform: translateY(-20px); opacity: 0; }
+  100% { transform: translateY(0px); opacity: 1;}
+}
+@keyframes up {
+  0%,100% { transform: translateY(20px); opacity: 0; }
+  100% { transform: translateY(0px); opacity: 1;}
+}
+
+@keyframes opacity {
+  0%,100% { opacity: 0; }
+  100% { opacity: 1;}
+}
+
+
+
+@layer components {
+
+  .hover-link-active {
+    @apply hover:text-secondary  duration-300 transition-all ease-in-out;
+  }
+
+  .link-active {
+    @apply text-secondary ;
+  }
+  .animate-down {
+    animation:  down 0.5s  ease-in-out;
+  }
+  .animate-up {
+    animation:  up 0.5s  ease-in-out;
+  }
+  .animate-sideLeft {
+    animation:  sideLeft 0.5s  ease-in-out;
+  }
+  .animate-sideRight{
+    animation:  sideRight 0.5s  ease-in-out;
+  }
+  .animate-opacity{
+    animation:  opacity 0.8s  ease-in;
+  }
+ 
+
+}
