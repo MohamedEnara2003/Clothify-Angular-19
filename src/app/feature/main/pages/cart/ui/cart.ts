@@ -28,7 +28,7 @@ import { MsgEmptyComponent } from "../../../shared/components/msg-empty/msg-empt
     @if (cartStore.isLoading()) {
     <app-loading-spinner class="h-80" />
     }@else if (cartStore.cartCount() === 0) {
-    <app-msg-empty [msg]="'cart.Your cart is empty!' | translate" />
+    <app-msg-empty msg="cart.Your cart is empty!" />
     }
     @else {
     <main aria-label="Main Cart" role="main" 
@@ -74,7 +74,6 @@ export class CartComponent {
         tap((qurtyParam) =>  {
           const productId = qurtyParam.get('id');
           const sizeId = qurtyParam.get('size_id') ;
-
           this.productId.set(productId)
           this.sizeId.set(sizeId)
         }),

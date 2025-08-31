@@ -15,11 +15,14 @@ export const ErrorInterceptor: HttpInterceptorFn = (req, next) => {
 
   return next(req).pipe(
     catchError((error : HttpErrorResponse) => {
+    console.log(error.status);
     
     switch(error.status){
     case 500 :router.navigateByUrl('/error/server');
     break
     case 0 :router.navigateByUrl('/error/network');
+    break
+    case undefined :router.navigateByUrl('/error/server');
     break
     case 404 :router.navigateByUrl('/error/not-found');
     break
