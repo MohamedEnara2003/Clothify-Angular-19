@@ -73,7 +73,9 @@ import { NgImageComponent } from "../../../../../shared/components/ng-image/ng-i
         class : 'w-full max-w-[700px] h-auto object-contain' ,
         loading : 'eager' ,
         decoding : 'async' ,
-        fetchpriority  : 'high'
+        fetchpriority  : 'high',
+        srcset : heroImageSrcSet,
+        sizes : heroImageSizes
         }"
         [title]="translate.heroTexts('hero.exploreSummer')"
         />
@@ -88,6 +90,14 @@ import { NgImageComponent } from "../../../../../shared/components/ng-image/ng-i
 export class HomeHeroSectionComponent {
   public translate = inject(TranslationService);
 
-  heroImage : string = "https://res.cloudinary.com/dphfyg0f8/image/upload/v1754707848/banner-home_guhrur.webp";
-  heroPlaceholderImage : string = "/hero-image-2.webp";
+  heroImage: string = "https://res.cloudinary.com/dphfyg0f8/image/upload/v1754707848/banner-home_guhrur.webp";
+  heroPlaceholderImage: string = "/hero-image-2.webp";
+
+  heroImageSrcSet: string = `
+  https://res.cloudinary.com/dphfyg0f8/image/upload/w_400,f_auto,q_auto/v1754707848/banner-home_guhrur.webp 400w,
+  https://res.cloudinary.com/dphfyg0f8/image/upload/w_700,f_auto,q_auto/v1754707848/banner-home_guhrur.webp 700w,
+  https://res.cloudinary.com/dphfyg0f8/image/upload/w_1200,f_auto,q_auto/v1754707848/banner-home_guhrur.webp 1200w
+  `;
+
+  heroImageSizes: string = "(max-width: 768px) 100vw, 700px";
 }

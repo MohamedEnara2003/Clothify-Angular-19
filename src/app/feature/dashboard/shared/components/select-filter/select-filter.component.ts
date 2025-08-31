@@ -6,6 +6,7 @@ import { SharedModule } from '../../../../../shared/modules/shared.module';
   selector: 'app-select-filter',
   imports: [SharedModule],
   template: `
+  @defer (on viewport) {
   <label class="select select-neutral bg-white text-neutral  w-full">
   <label class="label capitalize">{{label()}}</label>
   <select aria-label="dashboard.Select Filter" role="combobox" (change)="selectItem($event)"
@@ -13,8 +14,11 @@ import { SharedModule } from '../../../../../shared/modules/shared.module';
   @for (item of filterItems(); track item) {
   <option [value]="item" [selected]="selectedItem() === item" >{{item | translate}}</option>
   }
-  </select> 
+  </select>  
   </label>
+  }@placeholder {
+  <div class="select select-neutral bg-neutral-300 animate-pulse"></div>
+  }
   `,
 })
 export class SelectFilterComponent {

@@ -11,14 +11,14 @@ import {
   signal,
   untracked,
   ɵɵdefineInjectable
-} from "./chunk-JQCZLHQN.js";
+} from "./chunk-5QUTCDHT.js";
 import "./chunk-KJOBSHMP.js";
 import "./chunk-NEX2OZKL.js";
 import "./chunk-6KIATNSR.js";
 import {
   __spreadProps,
   __spreadValues
-} from "./chunk-WDMUDEB6.js";
+} from "./chunk-TXDUYLVM.js";
 
 // node_modules/@ngrx/signals/fesm2022/ngrx-signals.mjs
 function toDeepSignal(signal2) {

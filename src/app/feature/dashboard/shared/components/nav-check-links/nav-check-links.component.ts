@@ -1,4 +1,4 @@
-import { Component, inject, input, model, output } from '@angular/core';
+import { Component, inject , output } from '@angular/core';
 import { SharedModule } from '../../../../../shared/modules/shared.module';
 import { CheckDataService } from '../../../../../core/services/check-data.service';
 

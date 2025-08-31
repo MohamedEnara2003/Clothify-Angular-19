@@ -11,6 +11,9 @@ export interface ImageOption {
   decoding?: 'async' | 'sync' | 'auto'; // تحسين عرض الصورة
   fetchpriority?: 'high' | 'low' | 'auto';
   referrerpolicy?: ReferrerPolicy; // سياسة الإحالة
+  srcset?: string,
+  sizes?: string,
+
 }
 
 @Component({
@@ -20,6 +23,8 @@ export interface ImageOption {
   <picture class="size-full">
   <img
         [src]="options().src"
+        [srcset]="options().srcset"
+        [sizes]="options().sizes"
         [alt]="options().alt"
         role="img"
         [width]="options().width"
@@ -29,6 +34,7 @@ export interface ImageOption {
         [decoding]="options().decoding || 'async'"
         [attr.fetchpriority]="options().fetchpriority || 'auto'"
         [attr.referrerpolicy]="options().referrerpolicy || 'no-referrer'"
+        [style.aspect-ratio]="options().width + '/' + options().height"
         (error)="onError()"
       />
   </picture>
@@ -37,8 +43,12 @@ export interface ImageOption {
 export class NgImageComponent {
 public options = model.required<ImageOption>();
 
-onError () : void {
-this.options.update((prev) => ({...prev , src : prev.placeholder || '/placeholder-img.webp'}));
-};
+onError (): void {
+  this.options.update((prev) => ({
+    ...prev,
+    src: prev.placeholder || '/placeholder-img.webp'
+  }));
+}
+
 
 }
