@@ -1,4 +1,6 @@
+import { CommonModule } from '@angular/common';
 import { Component, model } from '@angular/core';
+
 
 export interface ImageOption {
   src : string ,
@@ -18,23 +20,23 @@ export interface ImageOption {
 
 @Component({
   selector: 'app-ng-image',
-  imports: [],
+  imports: [CommonModule],
   template: `
   <picture class="size-full">
   <img
         [src]="options().src"
-        [srcset]="options().srcset"
-        [sizes]="options().sizes"
+        [srcset]="options().srcset || '' "
+        [sizes]="options().sizes || '' "
         [alt]="options().alt"
         role="img"
         [width]="options().width"
         [height]="options().height"
-        [class]="options().class"
+        [ngClass]="options().class"
         [loading]="options().loading"
         [decoding]="options().decoding || 'async'"
         [attr.fetchpriority]="options().fetchpriority || 'auto'"
         [attr.referrerpolicy]="options().referrerpolicy || 'no-referrer'"
-        [style.aspect-ratio]="options().width + '/' + options().height"
+
         (error)="onError()"
       />
   </picture>
