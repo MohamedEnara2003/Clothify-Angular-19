@@ -15,8 +15,6 @@ export const ErrorInterceptor: HttpInterceptorFn = (req, next) => {
 
   return next(req).pipe(
     catchError((error : HttpErrorResponse) => {
-    console.log(error.status);
-    
     switch(error.status){
     case 500 :router.navigateByUrl('/error/server');
     break
