@@ -10,7 +10,7 @@ import {Router } from '@angular/router';
     class="w-full flex  justify-end items-center gap-2 text-neutral px-1">
     <label for="sort" class="label text-sm uppercase">Sort by </label>
     <select aria-label="Select Sort" role="select" name="sort" id="sort" 
-    class="w-30 md:w-35 select select-xs sm:select-sm  select-neutral" (change)="onSort($event)">
+    class="w-30 md:w-35 select select-xs sm:select-sm  select-neutral bg-white " (change)="onSort($event)">
     @for (s of sorts; track s.value) {
     <option [value]="s.value">{{s.name}}</option>
     }

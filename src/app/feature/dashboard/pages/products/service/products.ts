@@ -8,6 +8,7 @@ import { Collections, CollectionsResponse } from '../../../../../core/interfaces
 @Injectable({
   providedIn: 'root'
 })
+
 export class ProductsService {
   private readonly EndPoint : string = "products";
   private readonly singleTonApi = inject(SingleTonApi);

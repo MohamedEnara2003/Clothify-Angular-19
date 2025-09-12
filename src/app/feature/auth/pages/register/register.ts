@@ -20,7 +20,7 @@ import { FormControlComponent } from "../../../../shared/components/form-control
     <app-main-fields [formGroup]="registerForm" 
     class="w-full flex justify-center items-center">
 
-  <legend id="form-legend" class="w-full fieldset-legend  text-xl  sm:text-2xl 
+  <legend id="form-legend" class="text-neutral w-full fieldset-legend  text-xl  sm:text-2xl 
   flex flex-col justify-center items-center">
   {{ 'auth.createAccount' | translate }}
   @if(authStore.registerErrorMsg()){
@@ -57,11 +57,11 @@ isRequired : true
 
 
   <nav class="flex justify-center items-center gap-1" role="navigation">
-  <p >{{ 'auth.alreadyHaveAccount' | translate }}</p>
+  <p class="text-neutral">{{ 'auth.alreadyHaveAccount' | translate }}</p>
   <a  routerLink="/auth/login" href="/auth/login"  aria-label="Login Page Link" 
   class="link link-secondary">{{ 'auth.login' | translate }}</a>
   </nav>
-   
+  
   </form>
 
   </section>

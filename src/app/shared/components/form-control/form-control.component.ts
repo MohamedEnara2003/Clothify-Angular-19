@@ -46,8 +46,7 @@ export interface FormControlOption {
         [name]="option().name"
         [formControlName]="option().formControlName" 
         [attr.aria-describedby]="option().formControlName + 'Help'"
-        autocorrect=""
-        class="textarea focus:textarea-secondary w-full bg-white" 
+        class="textarea focus:textarea-secondary w-full bg-white text-neutral" 
         [ngClass]="shouldShowValidation() ? 'input-error': 'focus:input-secondary'"
         ></textarea>
         }
@@ -57,7 +56,7 @@ export interface FormControlOption {
         [id]="option().id" 
         [name]="option().name"
         [formControlName]="option().formControlName" 
-        class="select  w-full" 
+        class="select  w-full bg-white text-neutral" 
         aria-selected="true"
         [attr.aria-required]="option().isRequired"
         [attr.aria-describedby]="option().formControlName + 'Help'"
@@ -72,8 +71,7 @@ export interface FormControlOption {
         }
 
         @default {
-        <label  class="input w-full bg-white">
-
+        <label  class="input w-full bg-white text-neutral">
         @if(option().icon){
         <span  aria-hidden="true"
         (click)="onClickIcon.emit()" class="material-icons text-neutral">
@@ -90,7 +88,7 @@ export interface FormControlOption {
         [attr.aria-required]="option().isRequired"
         [attr.aria-describedby]="option().formControlName + 'Help'"
         [autocomplete]="option().autocomplete || ''"
-        class="bg-white"
+        class="bg-white text-neutral"
         [ngClass]="shouldShowValidation() ? 'input-error': 'focus:input-secondary'"
         />
         </label>

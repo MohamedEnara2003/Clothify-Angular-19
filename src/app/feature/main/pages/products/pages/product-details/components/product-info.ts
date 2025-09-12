@@ -24,7 +24,7 @@ import { BtnAddToWishlistComponent } from "../../../components/btn-add-to-wishli
   class="w-full  flex justify-center items-start border border-neutral-content rounded  p-4 ">
 
   @if (product()) {
-  <article class="relative w-full  h-full flex flex-col gap-4">
+  <article class="text-neutral relative w-full  h-full flex flex-col gap-4">
   @let stock = selectSize() ? selectSize().stock : product().stock || 0;
   
   <header class="flex items-center gap-2 text-neutral">

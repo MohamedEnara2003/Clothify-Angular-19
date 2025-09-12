@@ -11,7 +11,7 @@ import { LabelType, Options } from '@angular-slider/ngx-slider';
     class="w-full flex flex-col justify-center    gap-4 border-t border-neutral-400  border-dashed py-4">
 
     <button type="button" [attr.aria-label]="'button Filter Price Range'" role="button" 
-    class="w-full flex justify-between items-center   hover:bg-neutral-content rounded cursor-pointer
+    class="text-neutral w-full flex justify-between items-center   hover:bg-neutral-content rounded cursor-pointer
     duration-300 transition-all p-1"
     (click)="isOpen.set(!isOpen())">
     <h2 class="capitalize font-bold  text-lg">{{'labels.PriceRange' | translate}}</h2>

@@ -17,8 +17,8 @@ import { takeUntil } from 'rxjs/operators';
     class="w-full flex justify-between items-center   hover:bg-neutral-content rounded cursor-pointer
     duration-300 transition-all p-1"
     (click)="isOpen.set(!isOpen())">
-    <h2 class="capitalize font-bold  text-lg ">{{'labels.' + title() | translate}}</h2>
-    <span class="material-icons transition-all duration-300 " 
+    <h2 class="text-neutral capitalize font-bold  text-lg ">{{'labels.' + title() | translate}}</h2>
+    <span class="material-icons transition-all duration-300 text-neutral " 
     [ngClass]="!isOpen() ? 'rotate-0' : 'rotate-90'">keyboard_arrow_right</span>
     </button>
 

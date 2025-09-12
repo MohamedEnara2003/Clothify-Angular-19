@@ -10,7 +10,7 @@ import { environment } from '../../../environments/environment';
 })
 export class SingleTonApi {
   private readonly httpClient = inject(HttpClient);  
-  private readonly BaseUrlApi : string = environment.apiUrl;
+  private readonly BaseUrlApi : string = 'https://clothify-express-server.vercel.app/';
 
 
   findData<G>(endpoint : string ) : Observable<G> {

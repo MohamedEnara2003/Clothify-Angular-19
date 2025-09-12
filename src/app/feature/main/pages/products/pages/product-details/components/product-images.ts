@@ -39,7 +39,7 @@ import { NgImageComponent } from "../../../../../../../shared/components/ng-imag
     fetchpriority :  i === 0 ? 'high' : 'auto'
     }"
     />
-  <span class="absolute right-1 text-sm bottom-0 bg-neutral-content text-neutral-content-content rounded-full px-2 py-1">
+  <span class="absolute right-1 text-sm bottom-0 bg-neutral-content text-neutral rounded-full px-2 py-1">
   ({{i + 1}} / {{images()?.length}})
   </span>
   </div>

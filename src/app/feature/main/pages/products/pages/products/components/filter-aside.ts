@@ -11,14 +11,14 @@ import { ProductsStore } from '../../../../../../../store/products/products.sign
   template: `
   @defer (on viewport) {
   <aside aria-label="Aside Filter" role="aside" class="w-full  grid grid-cols-1 gap-5 ">
-    <header class="w-full flex justify-between items-center ">
+    <header class="text-neutral w-full flex justify-between items-center ">
     <h1 class="text-xl font-bold flex items-center">
     <span class="material-icons-outlined">filter_alt</span>
     {{'buttons.Filter' | translate}}
     </h1>
     @if(isFilter()){
     <button (click)="isFilter.set(!isFilter())" type="button" role="button" aria-label="Button Filter" 
-    class="btn btn-ghost btn-circle btn-sm ">
+    class="btn btn-ghost btn-circle btn-sm text-neutral ">
     <span class="material-icons">close</span>
     </button>
     }

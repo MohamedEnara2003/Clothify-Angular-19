@@ -30,7 +30,7 @@ import { NgImageComponent } from "../../shared/components/ng-image/ng-image.comp
         class="w-full h-screen absolute left-0 top-0 z-0 lg:relative" 
         />
 
-  <main aria-label="Authentication Routes" class="size-full flex flex-col justify-center items-center  z-5">
+  <main aria-label="Authentication Routes" class="size-full flex flex-col justify-center items-center  z-5 p-2">
   <router-outlet />
   </main>
   </section>

@@ -7,7 +7,7 @@ import { LanguageService, SupportedLanguages } from '../../../core/services/tran
   selector: 'app-select-lang',
   imports: [],
   template: `
-  <label class="select select-sm text-base">
+  <label class="select select-sm select-secondary  bg-white text-neutral">
     <label for="select-language" class="label">
     <img 
     [src]="currentLang() === 'en' ? 'en.webp' : 'ar.webp'" 

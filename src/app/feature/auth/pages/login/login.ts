@@ -17,7 +17,7 @@ import { TranslateModule } from '@ngx-translate/core';
  
     <app-main-fields [formGroup]="loginForm" class="w-full flex justify-center items-center">
 
-  <legend id="form-legend" class="w-full fieldset-legend  text-2xl  grid grid-cols-1">
+  <legend id="form-legend" class="text-neutral w-full fieldset-legend  text-2xl  grid grid-cols-1">
   {{ 'auth.login' | translate }}   
   @if(authStore.loginErrorMsg()){
   <p class=" text-error text-sm animate-up">{{authStore.loginErrorMsg()}}</p>
@@ -36,7 +36,7 @@ import { TranslateModule } from '@ngx-translate/core';
   </app-main-fields>
 
   <nav class="flex justify-center items-center gap-1" role="navigation">
-  <p >{{ 'auth.dontHaveAccount' | translate }}</p>
+  <p class="text-neutral">{{ 'auth.dontHaveAccount' | translate }}</p>
   <a href="/auth/register"  routerLink="/auth/register" aria-label="Login Page Link" class="link link-secondary"> 
   {{ 'auth.createOne' | translate }}
   </a>
