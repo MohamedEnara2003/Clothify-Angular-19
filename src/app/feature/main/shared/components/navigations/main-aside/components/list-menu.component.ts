@@ -29,7 +29,7 @@ import { MenuStore } from '../../../../../../../store/products/menu.signal';
       class="w-full btn btn-lg flex justify-between items-center"
       (click)="selectSection('fitTypes')"
     >
-      {{ 'FitType'  }}
+      {{ 'navigation.fitType'  | translate }}
       <span class="material-icons" [ngClass]="arrow">east</span>
     </button>
   </div>
@@ -47,7 +47,6 @@ import { MenuStore } from '../../../../../../../store/products/menu.signal';
     </header>
   @if (!selectedCategory()) {
     <nav>
-    <h3 class="text-xl font-bold mb-3 capitalize">{{ activeSection() }} Categories</h3>
     <ul class="space-y-2">
       @for (category of categories(); track category) {
         <li>
@@ -64,12 +63,11 @@ import { MenuStore } from '../../../../../../../store/products/menu.signal';
   </nav>
     }@else {
       <div class="mt-4" [ngClass]="animate">
-        <h4 class="text-xl  font-bold mb-2">Types in {{ selectedCategory() }}:</h4>
         <ul class="space-y-2">
           @for (type of typesForSelectedCategory(); track type) {
             <li>
               <button class="w-full btn flex justify-between items-center"
-              routerLink="/main/collections"
+              [routerLink]="['/main', { outlets: { primary: 'collections', aside: null } }]"
               [queryParams]="{gender: activeSection(), category: selectedCategory(), type: type}"
               >
                 {{ 'type.' + type | translate }}
@@ -91,8 +89,7 @@ import { MenuStore } from '../../../../../../../store/products/menu.signal';
       </button>
     </header>
     @if (!selectFitType()) {
-      <nav>
-    <h3 class="text-xl font-bold mb-3">Fit Types</h3>
+    <nav>
     <ul class="space-y-2">
       @for (type of fitTypeKeys(); track type) {
         <li>
@@ -115,7 +112,7 @@ import { MenuStore } from '../../../../../../../store/products/menu.signal';
           @for (fitType of fitTypes(); track fitType) {
             <li>
               <button class="w-full btn flex justify-between items-center"
-                routerLink="/main/collections"
+                [routerLink]="['/main', { outlets: { primary: 'collections', aside: null } }]"
                 [queryParams]="{type: selectFitType(), fitType: fitType}"
               >
                 {{ 'fitType.' + fitType | translate }}

@@ -1,19 +1,19 @@
-import { Component, signal } from '@angular/core';
+import { Component } from '@angular/core';
 import { Logo } from "../../../../../shared/components/logo/logo";
 import { UserProfile } from "../../../../../shared/components/user-profile/user-profile";
 import { WishlistLink } from "../links/wishlist-link/wishlist-link";
 import { CartLink } from "../links/cart-link/cart-link";
 import { OrderLink } from "../links/order-link/order-link";
 import { SharedModule } from '../../../../../shared/modules/shared.module';
-import { MainAside } from "../navigations/main-aside/main-aside";
 import { SelectLangComponent } from "../../../../../shared/components/translation/select-lang.component";
-import { SearchInputComponent } from "../../../../../shared/components/search-input/search-input.component";
-import { SearchBarAsideComponent } from "../navigations/search-bar-aside/search-bar-aside.component";
 
 
 @Component({
   selector: 'app-header',
-  imports: [Logo, UserProfile, WishlistLink, CartLink, OrderLink, SharedModule, MainAside, SelectLangComponent, SearchInputComponent, SearchBarAsideComponent],
+  imports: [
+  Logo, UserProfile, WishlistLink, CartLink, OrderLink, SharedModule, 
+  SelectLangComponent,
+  ],
   template: `
 
   <section class="w-full">
@@ -21,17 +21,19 @@ import { SearchBarAsideComponent } from "../navigations/search-bar-aside/search-
   class="w-full flex justify-between items-center bg-neutral  p-4 px-4 md:px-8 ">
     
     <div class="flex justify-center items-center gap-4">
-    <button type="button" aria-label="Menu Button" role="button" 
-    class="cursor-pointer text-neutral-content  hover:text-secondary duration-300 transition-colors"
-    (click)="isOpenMainAside.set(!isOpenMainAside())">
+      
+    <button [routerLink]="['/main' ,{outlets : {
+    aside : 'menu' ,
+    }}]" type="button" aria-label="Menu Button" role="button" 
+    class="cursor-pointer text-neutral-content  hover:text-secondary duration-300 transition-colors">
     <span class="material-icons" style="font-size: 1.7rem;">notes</span>
     </button>
   
-    <app-search-input class="bg-neutral-200 hidden md:block" (click)="isOpenSearchBarAside.set(true)"/>
 
-    <button type="button" aria-label="Menu Button" role="button" 
-    class="cursor-pointer md:hidden text-neutral-content  hover:text-secondary duration-300 transition-colors"
-    (click)="isOpenSearchBarAside.set(true)">
+    <button [routerLink]="['/main' ,{outlets : {
+    aside : 'search' ,
+    }}]" type="button" aria-label="Menu Button" role="button" 
+    class="cursor-pointer text-neutral-content  hover:text-secondary duration-300 transition-colors">
     <span class="material-icons" style="font-size: 1.7rem;">search</span>
     </button>
     </div>
@@ -60,19 +62,9 @@ import { SearchBarAsideComponent } from "../navigations/search-bar-aside/search-
 
 
 
- @if(isOpenMainAside()) {
-    <app-main-aside [isOpenMainAside]="isOpenMainAside()"  (isOpenMainAsideChange)="isOpenMainAside.set($event)" />
-  }
- @if(isOpenSearchBarAside()) {
-    <app-search-bar-aside  
-    [isOpenSearchBarAside]="isOpenSearchBarAside()"  
-    (isOpenSearchBarAsideChange)="isOpenSearchBarAside.set($event)" />
-  }
-
   </section>
   `,
 })
 export class Header {
-  isOpenMainAside = signal<boolean>(false);
-  isOpenSearchBarAside = signal<boolean>(false);
+
 }

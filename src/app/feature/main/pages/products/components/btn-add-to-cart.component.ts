@@ -33,7 +33,9 @@ export class BtnAddToCartComponent {
     if (!selectedSizeValue) return this.cartStore.addToCart(productId, quantity);
 
     const { _id: size_id, size, stock }: ProductSize = selectedSizeValue;
-    if (!size_id || stock < quantity) return;
+    
+    if (!size_id || stock <= quantity) return ;
+
     const selectedSize: CartProductSize = { size, size_id, stock };
     this.cartStore.addToCart(productId, quantity , selectedSize);
   }

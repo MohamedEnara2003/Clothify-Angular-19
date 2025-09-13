@@ -15,7 +15,7 @@ import { CartStore } from '../../../../../store/cart/cart.signal';
   class="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4  items-start gap-4
   overflow-y-auto"
 
-  [ngClass]="userCart && userCart.products.length > 1 ? 'h-150' : ''"
+  [ngClass]="userCart && userCart.products.length > 1 ? 'h-180' : ''"
   style="scrollbar-width: none;">
 
   @for (product of userCart?.products; track product.productId) {

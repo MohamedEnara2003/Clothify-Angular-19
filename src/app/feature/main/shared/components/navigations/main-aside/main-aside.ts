@@ -21,7 +21,8 @@ class="w-full h-svh fixed top-0 left-0 z-[100] flex justify-start items-start">
 
   <header aria-label="Header Main Aside" role="heading" class="flex justify-between items-center">
   <h1 class="text-lg font-semibold">{{'main.Menu' | translate}}</h1>
-  <button type="button" class="material-icons btn btn-circle btn-sm"   (click)="isOpenMainAside.set(false)" >
+  <button type="button" class="material-icons btn btn-circle btn-sm"   
+  [routerLink]="['/main' , {outlets : { aside : null }}]">
   close
   </button>
   </header>
@@ -46,8 +47,8 @@ class="w-full h-svh fixed top-0 left-0 z-[100] flex justify-start items-start">
   <app-select-lang />
   </aside>
 
-  <div aria-label="Main Aside Background" role="container"  class="size-full bg-neutral/70 fixed top-0 left-0 z-50"
-  (click)="isOpenMainAside.set(false)">
+  <div  [routerLink]="['/main' , {outlets : { aside : null }}]"
+  aria-label="Main Aside Background" role="container"  class="size-full bg-neutral/70 fixed top-0 left-0 z-50">
   </div>
 </section>
 
@@ -57,7 +58,6 @@ export class MainAside implements OnDestroy{
   readonly languageService = inject(LanguageService);
   readonly appLinksService = inject(AppLinksService);
 
-  isOpenMainAside = model<boolean>(false);
 
 
   constructor(@Inject(DOCUMENT) private doc: Document){

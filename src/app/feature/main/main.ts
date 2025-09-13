@@ -14,6 +14,7 @@ import { ResponsiveNavLinks } from "./shared/components/navigations/responsive-n
   <app-header />
   <main aria-label="Main Routes" role="main" class="w-full p-6 px-2 sm:px-4 md:px-8">
   <router-outlet />
+  <router-outlet name="aside"/>
   <app-responsive-nav-links  />
   </main>
   <app-footer />

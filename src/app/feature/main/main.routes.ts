@@ -20,6 +20,18 @@ export const mainRoutes: Routes = [
     {path: 'cart', loadComponent: () => import('./pages/cart/ui/cart').then((c) => c.CartComponent)},
     {path: 'wishlist', loadComponent: () => import('./pages/wishlist/ui/wishlist.component').then((c) => c.WishlistComponent)},
     {path: 'orders', loadComponent: () => import('./pages/order/ui/order').then((c) => c.Order)},
+
+    { 
+    path: 'menu',
+    loadComponent: () => import('./shared/components/navigations/main-aside/main-aside').then(c => c.MainAside),
+    outlet: 'aside'
+    },
+
+    {path: 'search', 
+    loadComponent: () => import('./shared/components/navigations/search-bar-aside/search-bar-aside.component')
+    .then((c) => c.SearchBarAsideComponent),
+    outlet : 'aside' ,
+    },
   
     {path : '', redirectTo : 'home', pathMatch : 'full'},
     {path : '**', redirectTo : '/error/not-found', pathMatch : 'full'}

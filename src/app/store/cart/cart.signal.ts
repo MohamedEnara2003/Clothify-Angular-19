@@ -43,6 +43,7 @@ export const CartStore= signalStore(
 
     addToCart  (productId : string , quantity : number ,  selectedSize? : CartProductSize ) : void {
     const userId = authStore.user()?.id;
+    
     if(!userId)  {
     router.navigate(['/auth/register'])
     return

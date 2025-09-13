@@ -23,13 +23,13 @@ import { DOCUMENT } from '@angular/common';
   <form class="w-full grid grid-cols-1 items-start gap-4">
   <legend class="w-full flex justify-between items-center">
   <h1 class="text-lg font-bold">{{'Search' }}</h1>
-  <button type="button" class="material-icons btn btn-circle btn-sm"   (click)="isOpenSearchBarAside.set(false)" >
+  <button type="button" class="material-icons btn btn-circle btn-sm"   
+  [routerLink]="['/main' ,{outlets : { aside : null }}]" >
   close
   </button>
   </legend> 
   <fieldset>
   <app-search-input  
-  [isFocus]="isOpenSearchBarAside()"
   [value]="searchValue()" 
   (valueChange)="searchValue.set($event)"/>
   </fieldset>
@@ -62,14 +62,14 @@ import { DOCUMENT } from '@angular/common';
   </aside>
 
   <div aria-label="Main Aside Background" role="container"  class="size-full bg-neutral/70 fixed top-0 left-0 z-50"
-  (click)="isOpenSearchBarAside.set(false)">
+  [routerLink]="['/main' ,{outlets : { aside : null }}]" 
+  >
   </div>
 </section>
   `,
 })
 export class SearchBarAsideComponent implements OnDestroy{
   readonly  languageService = inject(LanguageService);
-  isOpenSearchBarAside = model<boolean>(false);
   private readonly productStore = inject(ProductsStore);
 
   searchValue = signal<string>('');

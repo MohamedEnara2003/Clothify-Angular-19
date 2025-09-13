@@ -6,91 +6,101 @@ import { FormControlOption } from '../../../shared/components/form-control/form-
 export class CheckoutService {
 
   public checkoutFieldsets = signal<Array<{
-  legend : string ,
-  fields : FormControlOption[]
+    legend: string,
+    fields: FormControlOption[]
   }>>([
-  {
-    legend: 'checkout.Billing Information',
-    fields: [
-      {
-        type: 'email',
-        id: 'email',
-        name: 'email',
-        label: 'checkout.Email',
-        formControlName: 'email',
-        isRequired: true,
-        inputmode: 'email',
-      },
-      {
-        type: 'number',
-        id: 'phone',
-        name: 'phone',
-        label: 'checkout.Phone',
-        formControlName: 'phone',
-        isRequired: true,
-        inputmode: 'tel',
-      },
-    ],
-  },
-  {
-    legend: 'checkout.Shipping Information',
-    fields: [
-      {
-        type: 'text',
-        id: 'firstName',
-        name: 'firstName',
-        label: 'checkout.First Name',
-        formControlName: 'firstName',
-        isRequired: true,
-      },
-      {
-        type: 'text',
-        id: 'lastName',
-        name: 'lastName',
-        label: 'checkout.Last Name',
-        formControlName: 'lastName',
-        isRequired: true,
-      },
-      {
-        type: 'text',
-        id: 'country',
-        name: 'country',
-        label: 'checkout.Country',
-        formControlName: 'country',
-        isRequired: true,
-      },
-      {
-        type: 'text',
-        id: 'stateRegion',
-        name: 'stateRegion',
-        label: 'checkout.State',
-        formControlName: 'stateRegion',
-      },
-      {
-        type: 'text',
-        id: 'address',
-        name: 'address',
-        label: 'checkout.Address',
-        formControlName: 'address',
-        isRequired: true,
-      },
-      {
-        type: 'text',
-        id: 'city',
-        name: 'city',
-        label: 'checkout.City',
-        formControlName: 'city',
-      },
-      {
-        type: 'number',
-        id: 'postalCode',
-        name: 'postalCode',
-        label: 'checkout.Zip Code',
-        formControlName: 'postalCode',
-        inputmode: 'numeric',
-      },
-    ],
-  },
-]);
+    {
+      legend: 'checkout.Billing Information',
+      fields: [
+        {
+          type: 'email',
+          id: 'email',
+          name: 'email',
+          label: 'checkout.Email',
+          formControlName: 'email',
+          isRequired: true,
+          inputmode: 'email',
+          autocomplete: 'email',
+        },
+        {
+          type: 'number',
+          id: 'phone',
+          name: 'phone',
+          label: 'checkout.Phone',
+          formControlName: 'phone',
+          isRequired: true,
+          inputmode: 'tel',
+          autocomplete: 'tel',
+        },
+      ],
+    },
+    {
+      legend: 'checkout.Shipping Information',
+      fields: [
+        {
+          type: 'text',
+          id: 'firstName',
+          name: 'firstName',
+          label: 'checkout.First Name',
+          formControlName: 'firstName',
+          isRequired: true,
+          autocomplete: 'given-name',
+        },
+        {
+          type: 'text',
+          id: 'lastName',
+          name: 'lastName',
+          label: 'checkout.Last Name',
+          formControlName: 'lastName',
+          isRequired: true,
+          autocomplete: 'family-name',
+        },
+        {
+          type: 'text',
+          id: 'country',
+          name: 'country',
+          label: 'checkout.Country',
+          formControlName: 'country',
+          isRequired: true,
+          autocomplete: 'country-name',
+        },
+        {
+          type: 'text',
+          id: 'stateRegion',
+          name: 'stateRegion',
+          label: 'checkout.State',
+          formControlName: 'stateRegion',
+          autocomplete: 'address-level1', 
+        },
+        {
+          type: 'text',
+          id: 'address',
+          name: 'address',
+          label: 'checkout.Address',
+          formControlName: 'address',
+          isRequired: true,
+          autocomplete: 'street-address',
+        },
+        {
+          type: 'text',
+          id: 'city',
+          name: 'city',
+          label: 'checkout.City',
+          formControlName: 'city',
+          autocomplete: 'address-level2',
+        },
+        {
+          type: 'number',
+          id: 'postalCode',
+          name: 'postalCode',
+          label: 'checkout.Zip Code',
+          formControlName: 'postalCode',
+          inputmode: 'numeric',
+          autocomplete: 'postal-code',
+        },
+      ],
+    },
+  ]);
+  
 
 }

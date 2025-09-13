@@ -124,7 +124,6 @@ export class SizeForm {
   if(existingSizes){
     existingSizes.forEach(({size ,stock , _id}) => {
       this.sizes.push(this.fb.group({
-        _id: [_id || null],
         size: [size || '', [Validators.required]],
         stock: [stock || 0, [Validators.required, Validators.min(0), Validators.max(100000)]]
       }));
@@ -134,7 +133,6 @@ export class SizeForm {
 
   addSize() {
     this.sizes.push(this.fb.group({
-      _id: [null],
       size: ['', [Validators.required]],
       stock: [0, [Validators.required, Validators.min(0), Validators.max(100000)]]
     }));

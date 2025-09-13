@@ -14,11 +14,11 @@ export interface FormControlOption {
   name? : string,
   inputClass? : string,
   autocomplete? : 'email' | 'postal-code' | 'username' | 'name' | 'given-name' | 'family-name' | 'sex' 
-  | 'organization'  | 'street-address' | 'address-level2' | 'country-name' | 'current-password'  
+  | 'organization'  | 'street-address' | 'address-level1' | 'address-level2' | 'country-name' | 'current-password'  
   | 'new-password' | 'search' | 'tel',
   // If type select
   textForTranslate? : string ,
-  selectOptions? : string[]
+  selectOptions? : string[] 
 }
 
 
@@ -87,7 +87,7 @@ export interface FormControlOption {
         [inputMode]="option().inputmode"
         [attr.aria-required]="option().isRequired"
         [attr.aria-describedby]="option().formControlName + 'Help'"
-        [autocomplete]="option().autocomplete || ''"
+        [autocomplete]="option().autocomplete || 'on'"
         class="bg-white text-neutral"
         [ngClass]="shouldShowValidation() ? 'input-error': 'focus:input-secondary'"
         />
