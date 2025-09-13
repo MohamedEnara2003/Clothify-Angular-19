@@ -1,4 +1,4 @@
-import { Component, computed, inject, input, model } from '@angular/core';
+import { Component, computed, inject, model } from '@angular/core';
 import { FilterType } from "./filter-type/filter-type";
 import { FliterPriceRange } from "./fliter-price-range/fliter-price-range";
 import { SharedModule } from '../../../../../../../shared/modules/shared.module';
@@ -9,7 +9,7 @@ import { ProductsStore } from '../../../../../../../store/products/products.sign
   selector: 'app-filter-aside',
   imports: [FilterType, FliterPriceRange , SharedModule],
   template: `
-  @defer (on viewport) {
+
   <aside aria-label="Aside Filter" role="aside" class="w-full  grid grid-cols-1 gap-5 ">
     <header class="text-neutral w-full flex justify-between items-center ">
     <h1 class="text-xl font-bold flex items-center">
@@ -27,15 +27,14 @@ import { ProductsStore } from '../../../../../../../store/products/products.sign
     <main aria-label="Main Filter Content" role="main" class="size-full grid grid-cols-1  gap-2">
     @for (filter of filterData(); track filter) {
     @if(filter.items.length > 0){
-    <app-filter-type [isOpen]="true" [title]="filter.title" [items]="filter.items" />
+    <app-filter-type [isOpen]="true" [title]="filter.title" [items]="filter.items"/>
     }
-    }
+    } 
     <app-fliter-price-range [minPrice]="prices().minPrice" [maxPrice]="prices().maxPrice" />
     </main>
 </aside>
-}@placeholder {
-  <div class="w-full h-svh bg-neutral-300 animate-pulse"></div>
-}
+
+
 `,
 })
 export class FilterAside {

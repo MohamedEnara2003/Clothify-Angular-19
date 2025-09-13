@@ -13,12 +13,13 @@ import { SelectLangComponent } from "../../../shared/components/translation/sele
 
   <header aria-label="Header Checkout" role="header" class="w-full grid grid-cols-1 gap-4">
   <nav class="flex items-center gap-5">
-  <a routerLink="/main/cart" href="/main/cart"  aria-label="Button Back" role="button" type="button" class="btn btn-ghost btn-circle ">
+  <a routerLink="/main/cart" href="/main/cart"  aria-label="Button Back" role="button" type="button" 
+  class="btn btn-circle text-neutral bg-neutral-content">
   <span class="material-icons" style="font-size: 2rem;">west</span>
   </a>
   <app-select-lang />
   </nav>
-  <h1 class="text-2xl sm:text-3xl font-extrabold uppercase">{{'checkout.Checkout'  | translate}}</h1>
+  <h1 class="text-neutral text-2xl sm:text-3xl font-extrabold uppercase">{{'checkout.Checkout'  | translate}}</h1>
   </header>
 
   <main aria-label="Main Checkout" role="main" 

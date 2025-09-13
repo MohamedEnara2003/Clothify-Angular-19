@@ -1,9 +1,7 @@
 import { Component, computed, effect, inject , OnDestroy, signal } from '@angular/core';
 import { OrderStore } from '../../../../../store/orders/orders.signal';
 import { SharedModule } from '../../../../../shared/modules/shared.module';
-import { Order, OrderStatus } from '../../../../../core/interfaces/order.interface';
-import { PaymentMethod } from '../../../../checkout/interface/checkout.interface';
-import { SelectFilterComponent } from "../../../shared/components/select-filter/select-filter.component";
+import { Order } from '../../../../../core/interfaces/order.interface';
 import { ConfirmPopupService } from '../../../../../core/services/confirm-popup.service';
 import { OrderViewComponent } from "../components/order-view.component";
 import { NavCheckLinksComponent } from "../../../shared/components/nav-check-links/nav-check-links.component";
@@ -15,7 +13,6 @@ import { CheckAllComponent } from "../../../shared/components/check-all/check-al
   selector: 'app-orders',
   imports: [
     SharedModule,
-    SelectFilterComponent,
     OrderViewComponent,
     NavCheckLinksComponent, 
     TableEmptyComponent, 
@@ -33,13 +30,6 @@ aria-label="Order Management Page" role="region">
 <section class="w-full h-full flex flex-col  items-start  gap-2">
 
 <header class="w-full flex flex-wrap justify-between items-center gap-2 p-1 bg-base-100 z-10">
-
-  <form class="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 col-span-3 gap-2 sm:gap-4">
-  <app-select-filter [label]="'dashboard.Status' | translate" [filterItems]="orderStatusItems()" />
-  <app-select-filter [label]="'dashboard.Payment' | translate" [filterItems]="paymentMethodItems()" />
-  <app-select-filter [label]="'dashboard.SortBy' | translate" [filterItems]="orderSortItems()" />
-  </form>
-
   <app-nav-check-links  (confirm)="confirmDeleteOrder()" />
 </header>
 
@@ -157,20 +147,6 @@ export class Orders implements OnDestroy{
   'Order ID', 'Customer', 'Total Price', 'Payment', 'Status', 'Date',]
   ).asReadonly();
 
-  
-  // Filter Items
-  orderStatusItems = signal<(OrderStatus |'All')[]>([
-  'All', 'Pending', 'Accepted', 'Shipped', 'Delivered', 'Cancelled'
-  ]).asReadonly();
-  
-  paymentMethodItems = signal<('All' | PaymentMethod)[]>([
-  'All' , 'Delivery' , 'Instapay' , 'Vodafone-Cash'
-  ]).asReadonly();
-  
-  orderSortItems = signal<('Default' | 'Newest' | 'Oldest' | 'Highest Total Price' | 'Lowest Total Price')[]>([
-    'Default' , 'Newest' , 'Oldest' , 'Highest Total Price' , 'Lowest Total Price'
-  ]).asReadonly();
-
   isOrdersEmpty = computed(() => this.orderStore.orders().some(({orders}) => orders.length > 0))
 
   ordersIds = computed<string[]>(() => this.orderStore.orders()
@@ -182,7 +158,6 @@ export class Orders implements OnDestroy{
   this.orderStore.getAllUserOrders();
   }
   
-
 
   confirmDeleteOrder() : void {
   const ordersIds = this.checkDataService.valueIds();

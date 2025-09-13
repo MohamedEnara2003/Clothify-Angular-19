@@ -17,7 +17,7 @@ import { CheckoutService } from '../../../service/checkout.service';
 
   @for (fieldset of checkoutService.checkoutFieldsets(); track fieldset.legend) {
     <fieldset class="fieldset">
-      <legend class="legend md:text-base text-sm font-semibold pb-2 uppercase">
+      <legend class="legend text-neutral md:text-base text-sm font-semibold pb-2 uppercase">
         {{ fieldset.legend | translate }}
       </legend>
       

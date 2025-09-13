@@ -19,7 +19,7 @@ import { LoadingSpinner } from "../../../../../shared/components/loading/loading
       class="w-full flex flex-col md:flex-row justify-between items-start  mt-5 gap-5 overflow-hidden">
 
       <app-filter-aside 
-      class="w-70 2xl:w-100  fixed top-0 left-0  z-50 h-svh md:h-auto  
+      class="w-75 2xl:w-100  fixed top-0 left-0  z-50 h-svh md:h-auto  
       overflow-y-scroll md:overflow-y-visible bg-white 
       md:relative duration-500 transition-all ease-in-out"
       [ngClass]="isFilter() ? 
@@ -28,7 +28,10 @@ import { LoadingSpinner } from "../../../../../shared/components/loading/loading
       [isFilter]="isFilter()" 
       (isFilterChange)="isFilter.set($event)" 
       />
-
+      
+      <div (click)="isFilter.set(false)"       
+      [ngClass]="isFilter() ? 'w-full h-svh bg-neutral/50 fixed top-0 left-0 z-40' : 'hidden'">
+      </div>
 
       <section    class="w-full grid grid-cols-1 gap-10 md:w-3/4 ">
       @if(!productsStore.loading()){

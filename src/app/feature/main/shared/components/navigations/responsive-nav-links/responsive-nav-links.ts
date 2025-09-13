@@ -11,7 +11,7 @@ import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
   template: `
   @if (isScroll()) {
     <nav aria-label="Responsive Navigation Links" role="navigation"
-    class="animate-up fixed bottom-0 left-0 right-0 bg-secondary-content p-1 shadow shadow-neutral z-40
+    class="animate-up fixed bottom-0 left-0 right-0 bg-secondary-content p-1 shadow shadow-neutral z-30
     md:hidden">
     <ul 
     aria-label="Responsive Navigation Links"
@@ -29,14 +29,14 @@ import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
         <a href="/search" routerLink="/main/search" class="flex flex-col items-center"
         routerLinkActive="text-secondary">
           <span class="material-icons" style="font-size: 1.8rem;"> search </span>
-          <span aria-hidden="true" >Search</span>
+          <span aria-hidden="true" >{{'common.Search' | translate}}</span>
         </a>
       </li>
       <li aria-label="Collections" role="listitem">
         <a href="/main/collections" routerLink="/main/collections" class="flex flex-col items-center"
         routerLinkActive="text-secondary">
           <span class="material-icons-outlined" style="font-size: 1.8rem;"> view_cozy </span>
-          <span aria-hidden="true" >Collections</span>
+          <span aria-hidden="true" >{{'navigation.Collections' | translate}}</span>
         </a>
       </li>
       <li aria-label="Wishlist" role="listitem">

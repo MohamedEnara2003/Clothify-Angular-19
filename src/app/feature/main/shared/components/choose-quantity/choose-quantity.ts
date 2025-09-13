@@ -11,14 +11,14 @@ import { AlertService } from '../../../../../core/services/alert.service';
   [ngClass]="isColumn() ? 'w-8 h-25  grid-cols-1' :'w-25 h-8 grid-cols-3'">
 
     <button type="button" 
-    class="size-full cursor-pointer p-0 btn btn-xs" (click)="increment()">
+    class="size-full cursor-pointer p-0 btn btn-xs rounded-none" (click)="increment()">
     <span class="material-icons" style="font-size: 1rem;">add</span>
     </button>
 
     <span class="w-full h-full text-center">{{quantity()}}</span>
 
     <button type="button" [disabled]="quantity() === 1" 
-    class="size-full btn btn-xs p-0 " (click)="decrement()">
+    class="size-full btn btn-xs p-0 rounded-none" (click)="decrement()">
     <span class="material-icons" style="font-size: 1rem;">remove</span>
     </button>
   </nav>

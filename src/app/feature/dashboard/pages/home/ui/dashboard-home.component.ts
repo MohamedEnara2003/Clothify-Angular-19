@@ -7,17 +7,17 @@ import { AuthStore } from '../../../../../store/auth/auth.signal';
   template: `
 
 <section 
-  class="p-6 bg-base-200 rounded-xl shadow-md space-y-4" 
+  class="p-6 bg-neutral text-neutral-content rounded-xl shadow-md space-y-4" 
   role="region" 
   aria-label="Dashboard Home Section"
   aria-labelledby="dashboard-welcome"
 >
-  <header class="w-full flex justify-center">
+  <header class="w-full flex justify-center ">
     <h1 
       id="dashboard-welcome" 
       class="text-xl sm:text-2xl md:text-3xl font-bold capitalize"
     >
-      Welcome back, <span class="text-secondary ">{{user?.fullName|| 'user'}} </span> in dashboard 👋 
+      Welcome back, <span class="text-secondary ">{{user?.fullName || 'user'}} </span> in dashboard 👋 
     </h1>
   </header>
 
