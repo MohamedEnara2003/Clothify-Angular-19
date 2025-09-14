@@ -32,7 +32,7 @@ import { ImageOption, NgImageComponent } from "../../../../../shared/components/
       [title]="title"
       aria-label="Container Product Image"
       role="container"
-      class="w-full h-[80%] cursor-pointer relative group overflow-hidden"
+      class="w-full h-[80%] flex flex-col justify-center cursor-pointer relative group overflow-hidden"
     >
       <!-- Header -->
       <header
@@ -131,7 +131,7 @@ export class ProductCard {
   placeholder : images[1].img_url  ,
   width : 300 ,
   height : 300 , 
-  class : 'w-full h-full object-contain z-40 group-hover:scale-105 transition-all duration-300 '
+  class : 'size-full object-contain z-40 group-hover:scale-105 transition-all duration-300 '
   + images[1] && this.imageView().img_id === images[1].img_id ? 'animate-opacity' : '',
   loading : 'lazy',
   decoding : 'async'

@@ -22,7 +22,7 @@ export interface ImageOption {
   selector: 'app-ng-image',
   imports: [CommonModule],
   template: `
-  <picture class="size-full">
+  <picture class="size-full flex justify-center items-start">
   <img
         [src]="options().src"
         [srcset]="options().srcset || '' "
@@ -36,7 +36,6 @@ export interface ImageOption {
         [decoding]="options().decoding || 'async'"
         [attr.fetchpriority]="options().fetchpriority || 'auto'"
         [attr.referrerpolicy]="options().referrerpolicy || 'no-referrer'"
-
         (error)="onError()"
       />
   </picture>

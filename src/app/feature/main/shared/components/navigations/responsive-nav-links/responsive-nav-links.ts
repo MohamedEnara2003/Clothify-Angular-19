@@ -26,8 +26,8 @@ import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
         </a>
       </li>
       <li>
-        <a href="/search" routerLink="/main/search" class="flex flex-col items-center"
-        routerLinkActive="text-secondary">
+        <a href="/search" [routerLink]="['/main' ,{outlets : {aside : 'search'}}]" 
+        class="flex flex-col items-centerz" routerLinkActive="text-secondary">
           <span class="material-icons" style="font-size: 1.8rem;"> search </span>
           <span aria-hidden="true" >{{'common.Search' | translate}}</span>
         </a>
