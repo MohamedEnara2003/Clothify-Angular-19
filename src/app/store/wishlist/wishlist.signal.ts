@@ -25,6 +25,7 @@ export const WishlistStore = signalStore(
         const wishlistKey = "Wishlist";
         const localStorage = inject(LocaleStorageService);
         return {
+
             getWishlist(): void {
                     const products = localStorage.getItem<Product[]>(wishlistKey);
                     if (products && Array.isArray(products)) {

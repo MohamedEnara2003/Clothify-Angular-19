@@ -14,7 +14,7 @@ import { CheckDataService } from '../../../../../core/services/check-data.servic
   <article aria-label="Products collections" role="article" class="w-full grid grid-cols-1 gap-15">
   @for (collection of collectionsStore.collections(); let i = $index ; track collection._id) {
   @defer (on viewport) {
-
+    
   @let title = languageService.currentLanguage() === 'en' ? collection.titleEn : collection.titleAr ;
   <app-products-slider
   [title]="title"

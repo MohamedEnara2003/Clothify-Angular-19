@@ -27,4 +27,10 @@ import { SharedModule } from '../../../../../shared/modules/shared.module';
 })
 export class WishlistComponent {
   readonly wishlistStore = inject(WishlistStore);
+
+  ngOnInit(): void {
+  this.wishlistStore.getWishlist()
+  }
+
+
 }

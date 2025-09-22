@@ -31,7 +31,7 @@ import { takeUntil } from 'rxjs/operators';
       @for(item of items(); track item){
       <li aria-label="Item Filter Type" role="item" 
       class="flex items-center gap-2">
-      @defer (on viewport ; when !isOpen()) {
+      @defer (on viewport) {
       <input type="checkbox" [name]="item" [id]="item" class="checkbox rounded checkbox-md  checkbox-neutral"
       (change)="addQueryParams(item)" 
       [checked]="selectedItems().includes(item)">

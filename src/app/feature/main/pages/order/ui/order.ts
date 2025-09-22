@@ -18,7 +18,9 @@ import { OrderCardComponent } from "../components/order-card.component";
 @let userOrder = orderStore.userOrder();
 @let orderCount = orderStore.userOrderCount();
 
-@if (isLoading) {<app-loading-spinner class="h-80" />}
+@if (isLoading) {
+<app-loading-spinner class="h-80" />
+}
 @else if (orderCount === 0) {<app-msg-empty [msg]="'orders.No orders found' | translate" />}
 @else if (userOrder) {
 <ul role="list" class="w-full grid grid-cols-1 gap-10">

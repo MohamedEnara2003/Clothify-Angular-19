@@ -22,4 +22,5 @@ const SHARED_MODULES = [
     DragDropModule,
   ],
 })
+
 export class SharedModule {}

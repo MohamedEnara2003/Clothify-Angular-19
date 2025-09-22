@@ -36,10 +36,11 @@ import { AppLinksService } from '../../../core/services/app-links.service';
   @if(isDashboard()) {
   <li  aria-label="Item User Profile" role="listitem">
   <a routerLink="/dashboard"  role="link"  (click)="isProfile.set(false)"
+  routerLinkActive="text-secondary"
   class="flex items-center gap-2 link link-neutral hover:text-secondary link-hover 
   duration-300 transition-colors">
   <span class="material-icons-outlined" style="font-size: 1.5rem;">dashboard</span>
-  <span class="text-sm">Dashboard</span>
+  <span class="text-sm">{{'navigation.Dashboard' | translate}}</span>
   </a>
   </li> 
   }
